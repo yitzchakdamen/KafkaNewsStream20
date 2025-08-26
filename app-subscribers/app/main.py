@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from klakfa_tools.kafka_configurations import KlakfaTools
 from kafka import KafkaConsumer
 from data_loader import DataLoader
-import os
 import logging
 import uvicorn
 import config
