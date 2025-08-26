@@ -3,6 +3,6 @@ fastapi
 pymongo
 
 
-kafka
+kafka-python
 scikit-learn
 dotenv
