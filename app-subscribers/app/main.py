@@ -20,7 +20,7 @@ data_loader = DataLoader()
 
 @app.get("/api/get_latest_pub-news")
 async def pub_news_processing():
-    consumer: KafkaConsumer = KlakfaTools.get_consumer(config.topic, group_id=config.group)
+    consumer: KafkaConsumer = KlakfaTools.get_consumer(config.TOPIC, group_id=config.GROUP)
     events = KlakfaTools.get_events(consumer)
     if not events: return {"status": "no events found"}
     insert_status = data_loader.insert(events)

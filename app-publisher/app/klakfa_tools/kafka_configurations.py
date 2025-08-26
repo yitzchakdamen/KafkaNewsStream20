@@ -12,7 +12,7 @@ class KlakfaTools:
     @staticmethod
     def get_producer() -> KafkaProducer:
         logging.info("Creating producer object ..")
-        return KafkaProducer(bootstrap_servers=[config.bootstrap_servers],value_serializer=lambda x: json.dumps(x).encode('utf-8'))
+        return KafkaProducer(bootstrap_servers=[config.KAFKA_BOOTSTRAP_SERVERS],value_serializer=lambda x: json.dumps(x).encode('utf-8'))
 
     @staticmethod
     def publish_send_message(producer:KafkaProducer,  topic, key, message):

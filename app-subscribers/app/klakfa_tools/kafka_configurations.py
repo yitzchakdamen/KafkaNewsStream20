@@ -17,7 +17,7 @@ class KlakfaTools:
             topic,
             group_id=group_id,
             value_deserializer=lambda m: json.loads(m.decode('utf-8')),
-            bootstrap_servers=[config.bootstrap_servers],
+            bootstrap_servers=[config.KAFKA_BOOTSTRAP_SERVERS],
             consumer_timeout_ms=10000,
             auto_offset_reset='earliest'
         )
@@ -28,7 +28,7 @@ class KlakfaTools:
         try:
             for message in consumer:
                 list_events.append({
-                    list(message.value)[0]: message.value[list(message.value)[0]],
+                    "data": message.value,
                     "time": datetime.now(),
                     "timestamp": message.timestamp
                 })
