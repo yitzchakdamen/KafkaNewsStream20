@@ -20,7 +20,7 @@ async def pub_news_processing():
     pub_interesting_news = publisher.pub_news(producer, sum_news=config.SUM_NEWS, topic=config.KAFKA_TOPIC_INTERESTING)
     pub_not_interesting_news = publisher.pub_news(producer, sum_news=config.SUM_NEWS, topic=config.KAFKA_TOPIC_NOT_INTERESTING)
 
-    if pub_interesting_news and pub_not_interesting_news: return {"status": "completed"}
+    if pub_interesting_news and pub_not_interesting_news: return {"description": "published news to kafka", "status": "completed", "published count for each topic": config.SUM_NEWS}
     else: return {"status": "failed"}
 
 

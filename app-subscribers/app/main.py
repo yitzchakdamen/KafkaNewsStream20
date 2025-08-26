@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from klakfa_tools.kafka_configurations import KlakfaTools
 from kafka import KafkaConsumer
 from data_loader import DataLoader
-import os
 import logging
 import uvicorn
 import config
@@ -25,7 +24,7 @@ async def pub_news_processing():
     if not events: return {"status": "no events found"}
     insert_status = data_loader.insert(events)
 
-    if insert_status: return {"status": "completed"}
+    if insert_status: return {"description":"get data from kafka and insert into mongo", "status": "completed", "inserted count": len(events), "topic":config.TOPIC}
     else: return {"status": "failed"}
     
 @app.get("/api/get_pub-news_from_mongo")

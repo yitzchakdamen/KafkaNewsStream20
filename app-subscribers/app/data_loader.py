@@ -1,4 +1,3 @@
-import os
 import logging
 from pymongo import MongoClient
 from pymongo.collection import Collection
