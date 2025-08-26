@@ -1,0 +1,8 @@
+uvicorn
+fastapi
+pymongo
+
+
+kafka
+scikit-learn
+dotenv
