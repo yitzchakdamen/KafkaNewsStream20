@@ -2,6 +2,22 @@ docker network create KafkaNewsStream20
 
 cd C:\Users\isaac\source\repos\BlockingVsNoneBlocking
 
+docker stop kafka-broker
+docker rm kafka-broker
+
+docker stop mongodb-NewsStream20
+docker rm mongodb-NewsStream20
+
+docker stop app-subscribers-1 
+docker rm app-subscribers-1 
+
+docker stop app-subscribers-2
+docker rm app-subscribers-2
+
+
+docker stop app-publisher
+docker rm app-publisher
+
 @REM --- kafka ---
 
 docker run -d --name kafka-broker ^

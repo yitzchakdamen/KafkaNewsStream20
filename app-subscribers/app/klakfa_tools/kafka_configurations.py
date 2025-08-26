@@ -28,9 +28,9 @@ class KlakfaTools:
         try:
             for message in consumer:
                 list_events.append({
+                    "topic": config.TOPIC,
                     "data": message.value,
-                    "time": datetime.now(),
-                    "timestamp": message.timestamp
+                    "time get from kafka": datetime.now()
                 })
         finally:
             consumer.close()
